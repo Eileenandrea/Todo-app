@@ -1,27 +1,11 @@
-<p id="notice"><%= notice %></p>
+<div class="card-header d-flex justify-content-between">
+  <span>Todo list</span>
+<%= link_to 'New Todo List', new_todo_list_path,class:'text-light btn btn-primary btn-sm' %>
+</div>
 
-<h1>Todo Lists</h1>
+<ul class='list-group'>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @todo_lists.each do |todo_list| %>
-      <tr>
-        <td><%= todo_list.title %></td>
-        <td><%= link_to 'Show', todo_list %></td>
-        <td><%= link_to 'Edit', edit_todo_list_path(todo_list) %></td>
-        <td><%= link_to 'Destroy', todo_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Todo List', new_todo_list_path %>
+<% @todo_lists.each do |todo_list| %>
+    <%= link_to todo_list.title, todo_list, class:"list-group-item list-group-item-action" %>
+  <%end%>
+</ul>
